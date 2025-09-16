@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Sidebar from '@/components/Sidebar';
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from '@/components/AppSidebar';
 import FloatingCubes from '@/components/FloatingCubes';
 import HomePage from '@/components/sections/HomePage';
 import YogaPage from '@/components/sections/YogaPage';
@@ -31,25 +32,32 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Floating Cubes Animation Background */}
-      <FloatingCubes />
-      
-      {/* Main Layout */}
-      <div className="flex relative z-10">
-        {/* Sidebar */}
-        <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+    <SidebarProvider>
+      <div className="min-h-screen bg-background relative overflow-hidden w-full">
+        {/* Floating Cubes Animation Background */}
+        <FloatingCubes />
         
-        {/* Main Content */}
-        <main className="flex-1 lg:ml-0">
-          <div className="container mx-auto px-4 py-8 lg:px-8 max-w-7xl">
-            <div className="pt-16 lg:pt-0">
-              {renderContent()}
+        {/* Sidebar Toggle Button */}
+        <div className="fixed top-4 left-4 z-50">
+          <SidebarTrigger className="bg-card/80 backdrop-blur-sm border-primary/20" />
+        </div>
+        
+        {/* Main Layout */}
+        <div className="flex relative z-10 w-full">
+          {/* Sidebar */}
+          <AppSidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+          
+          {/* Main Content */}
+          <main className="flex-1">
+            <div className="container mx-auto px-4 py-8 lg:px-8 max-w-7xl">
+              <div className="pt-16 lg:pt-0">
+                {renderContent()}
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 

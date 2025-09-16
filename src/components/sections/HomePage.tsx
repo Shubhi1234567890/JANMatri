@@ -42,7 +42,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
     <div className="space-y-8 animate-fade-in">
       {/* Welcome Section */}
       <div className="text-center py-12">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-glow-pulse">
+        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
           Welcome to JANMatri
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

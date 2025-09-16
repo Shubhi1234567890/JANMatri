@@ -46,9 +46,8 @@ const SettingsPage = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check system theme preference
-    const isDark = document.documentElement.classList.contains('dark');
-    setIsDarkMode(isDark);
+    // Set dark theme as default
+    setIsDarkMode(true);
   }, []);
 
   const toggleTheme = () => {
@@ -157,25 +156,6 @@ const SettingsPage = () => {
                   checked={isDarkMode}
                   onCheckedChange={toggleTheme}
                 />
-              </div>
-              
-              {/* Additional theme options */}
-              <div className="mt-6 space-y-4">
-                <h4 className="font-medium">Color Preferences</h4>
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="p-3 bg-gradient-to-br from-primary to-primary-light rounded-lg cursor-pointer border-2 border-primary">
-                    <div className="w-full h-8 bg-gradient-to-r from-primary to-primary-light rounded mb-2"></div>
-                    <p className="text-xs text-center font-medium">Rose Pink (Active)</p>
-                  </div>
-                  <div className="p-3 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg cursor-pointer border-2 border-transparent hover:border-blue-400 transition-all">
-                    <div className="w-full h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded mb-2"></div>
-                    <p className="text-xs text-center text-white font-medium">Ocean Blue</p>
-                  </div>
-                  <div className="p-3 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg cursor-pointer border-2 border-transparent hover:border-purple-400 transition-all">
-                    <div className="w-full h-8 bg-gradient-to-r from-purple-400 to-purple-600 rounded mb-2"></div>
-                    <p className="text-xs text-center text-white font-medium">Lavender</p>
-                  </div>
-                </div>
               </div>
             </CardContent>
           </Card>
