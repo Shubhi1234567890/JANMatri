@@ -41,17 +41,17 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Welcome Section */}
-      <div className="text-center py-12">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+      <div className="text-center py-12 animate-scale-in">
+        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-glow-pulse">
           Welcome to JANMatri
         </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in animation-delay-300">
           Your compassionate companion through the post-partum journey. 
           We're here to support you with expert care, community connection, and wellness guidance.
         </p>
         <Button 
           size="lg" 
-          className="bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce-gentle"
           onClick={() => onSectionChange('community')}
         >
           Join Our Community
@@ -60,15 +60,16 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {quickActions.map((action) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-in-left animation-delay-500">
+        {quickActions.map((action, index) => (
           <Card 
             key={action.id}
-            className="group cursor-pointer border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card/80 backdrop-blur-sm"
+            className="group cursor-pointer border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card/80 backdrop-blur-sm animate-fade-in"
+            style={{ animationDelay: `${600 + index * 150}ms` }}
             onClick={() => onSectionChange(action.id)}
           >
             <CardHeader className="text-center pb-2">
-              <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 animate-glow-pulse`}>
                 <action.icon className="w-8 h-8 text-white" />
               </div>
               <CardTitle className="text-xl group-hover:text-primary transition-colors">

@@ -32,7 +32,7 @@ const Layout = () => {
   };
 
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <div className="min-h-screen bg-background relative overflow-hidden w-full">
         {/* Floating Cubes Animation Background */}
         <FloatingCubes />

@@ -1,43 +1,45 @@
 import { useEffect, useState } from 'react';
 
-interface Cube {
+interface Shape {
   id: number;
   left: number;
   delay: number;
   size: number;
+  type: 'cube' | 'circle';
 }
 
 const FloatingCubes = () => {
-  const [cubes, setCubes] = useState<Cube[]>([]);
+  const [shapes, setShapes] = useState<Shape[]>([]);
 
   useEffect(() => {
-    const generateCubes = () => {
-      const newCubes: Cube[] = [];
-      for (let i = 0; i < 15; i++) {
-        newCubes.push({
+    const generateShapes = () => {
+      const newShapes: Shape[] = [];
+      for (let i = 0; i < 30; i++) {
+        newShapes.push({
           id: i,
           left: Math.random() * 100,
-          delay: Math.random() * 20,
-          size: 8 + Math.random() * 8, // 8-16px
+          delay: Math.random() * 25,
+          size: 6 + Math.random() * 12, // 6-18px
+          type: Math.random() > 0.5 ? 'cube' : 'circle',
         });
       }
-      setCubes(newCubes);
+      setShapes(newShapes);
     };
 
-    generateCubes();
+    generateShapes();
   }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {cubes.map((cube) => (
+      {shapes.map((shape) => (
         <div
-          key={cube.id}
-          className="floating-cube"
+          key={shape.id}
+          className={shape.type === 'cube' ? 'floating-cube' : 'floating-circle'}
           style={{
-            left: `${cube.left}%`,
-            animationDelay: `${cube.delay}s`,
-            width: `${cube.size}px`,
-            height: `${cube.size}px`,
+            left: `${shape.left}%`,
+            animationDelay: `${shape.delay}s`,
+            width: `${shape.size}px`,
+            height: `${shape.size}px`,
           }}
         />
       ))}

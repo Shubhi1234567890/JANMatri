@@ -187,10 +187,34 @@ All colors MUST be HSL for proper theming.
   z-index: 1;
 }
 
+.floating-circle {
+  position: fixed;
+  background: linear-gradient(45deg, 
+    hsl(var(--secondary) / 0.08), 
+    hsl(var(--primary-light) / 0.12)
+  );
+  border: 1px solid hsl(var(--secondary) / 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .floating-cube:nth-child(odd) {
   animation: float-up 15s infinite linear;
 }
 
 .floating-cube:nth-child(even) {
   animation: float-down 18s infinite linear;
+}
+
+.floating-circle:nth-child(3n) {
+  animation: float-up 20s infinite linear;
+}
+
+.floating-circle:nth-child(3n+1) {
+  animation: float-down 22s infinite linear;
+}
+
+.floating-circle:nth-child(3n+2) {
+  animation: float-up 25s infinite linear;
 }
