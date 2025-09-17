@@ -6,7 +6,7 @@ JANMatri is a compassionate digital sanctuary designed to empower and support mo
 **URL**: https://janmatri-circle-of-support.lovable.app/
 
 # ✨ Key Features
-* **🧘‍♀️ Yoga & Wellness** \
+# 🧘‍♀️ Yoga & Wellness 
   
 * Curated Sessions: Provides yoga and meditation sessions specifically tailored for postpartum recovery.
 
@@ -14,31 +14,31 @@ JANMatri is a compassionate digital sanctuary designed to empower and support mo
 
 * Audio Diaries: A therapeutic feature that allows users to record their thoughts and feelings as voice notes.
 
-* **💬 Community & Connection** \
+# 💬 Community & Connection
 * Community Connect: A vibrant central forum for mothers to share experiences, offer mutual support, and realize they are not alone.
 
 * Anonymous Chat Option: Provides a safe space for candid conversations without fear of judgment.
 
 * Moderated Support Groups: Smaller, topic-specific groups for more intimate and focused discussions.
 
-* **👩‍⚕️ Professional Guidance**\
+# 👩‍⚕️ Professional Guidance
 * Connect with Doctors: A comprehensive directory of mental health specialists and postpartum care experts.
 
 * Emergency SOS Button: A one-tap button for immediate access to mental health hotlines and trusted contacts.
 
-* **📈 Personalized Support**\
+# 📈 Personalized Support
 * Personalized Mood Tracker: Helps users log feelings and provides insights into emotional patterns.
 
 * Partner's Corner: A dedicated section with educational resources to empower partners to become a stronger support system.
 
 * Local Resources Map: Helps users find nearby in-person support groups, therapists, and services.
 
-* **🛒 Integrated Lifestyle**\
+# 🛒 Integrated Lifestyle
 * Infant Milestone Tracker: Helps alleviate anxiety by providing reassurance and context for a baby's development.
 
 * Shop: A convenient marketplace for baby products.
 
-# 💻 Tech Stack \
+# 💻 Tech Stack 
 This project is built with a modern and robust technology stack to ensure a seamless user experience.
 
 Frontend: Vite, TypeScript, React
