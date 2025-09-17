@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -22,7 +22,19 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock
+  Clock,
+  Smile,
+  Brain,
+  MessageSquare,
+  Shield,
+  Mic,
+  Map,
+  Calendar,
+  AlertTriangle,
+  Headphones,
+  BookOpen,
+  Activity,
+  Target
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -35,27 +47,124 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [cart, setCart] = useState<{[key: string]: number}>({});
   const [favorites, setFavorites] = useState<string[]>([]);
-  const quickActions = [
+
+  // Scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-visible');
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const coreFeatures = [
     {
       id: 'yoga',
-      title: 'Daily Yoga',
-      description: 'Gentle exercises for post-partum recovery',
+      title: 'Yoga Recommendations',
+      description: 'Tailored yoga sessions and breathing exercises for new mothers',
       icon: Heart,
       color: 'from-primary to-primary-light',
     },
     {
-      id: 'community',
-      title: 'Community',
-      description: 'Connect with other mothers',
-      icon: Users,
+      id: 'doctors',
+      title: 'Connect with Doctors',
+      description: 'Directory of postpartum health specialists',
+      icon: Stethoscope,
       color: 'from-secondary to-accent',
     },
     {
-      id: 'doctors',
-      title: 'Expert Care',
-      description: 'Professional medical support',
-      icon: Stethoscope,
+      id: 'community',
+      title: 'Community Connect',
+      description: 'Chat and support network for mothers',
+      icon: Users,
       color: 'from-accent to-primary',
+    },
+  ];
+
+  const uniqueFeatures = [
+    {
+      id: 'mood-tracker',
+      title: 'Personalized Mood Tracker',
+      description: 'Log daily feelings and track mood patterns with insights',
+      icon: Smile,
+      color: 'from-blue-500 to-purple-500',
+      details: 'Track your emotional journey with personalized insights and trend analysis'
+    },
+    {
+      id: 'custom-yoga',
+      title: 'Customized Yoga & Meditation',
+      description: 'Personalized exercises based on your mood and energy levels',
+      icon: Brain,
+      color: 'from-green-500 to-teal-500',
+      details: 'AI-powered recommendations that adapt to your current emotional state'
+    },
+    {
+      id: 'anonymous-chat',
+      title: 'Anonymous Chat Option',
+      description: 'Join conversations without revealing your identity',
+      icon: MessageSquare,
+      color: 'from-purple-500 to-pink-500',
+      details: 'Feel safe to share openly with complete anonymity protection'
+    },
+    {
+      id: 'support-groups',
+      title: 'Moderated Support Groups',
+      description: 'Topic-specific groups for focused support and discussion',
+      icon: Shield,
+      color: 'from-orange-500 to-red-500',
+      details: 'Small, intimate groups focused on specific challenges like sleep, anxiety, or recovery'
+    },
+    {
+      id: 'emergency-sos',
+      title: 'Emergency SOS Button',
+      description: 'One-tap access to mental health hotlines and trusted contacts',
+      icon: AlertTriangle,
+      color: 'from-red-500 to-pink-500',
+      details: 'Immediate help when you need it most - always just one tap away'
+    },
+    {
+      id: 'audio-diaries',
+      title: 'Audio Diaries',
+      description: 'Record voice notes as therapeutic alternatives to typing',
+      icon: Mic,
+      color: 'from-indigo-500 to-blue-500',
+      details: 'Express your thoughts naturally through voice recordings'
+    },
+    {
+      id: 'partners-corner',
+      title: "Partner's Corner",
+      description: 'Resources and tips to help partners provide better support',
+      icon: Users,
+      color: 'from-teal-500 to-green-500',
+      details: 'Educational resources to help your loved ones understand and support you'
+    },
+    {
+      id: 'local-resources',
+      title: 'Local Resources Map',
+      description: 'Find nearby support groups, therapists, and services',
+      icon: Map,
+      color: 'from-yellow-500 to-orange-500',
+      details: 'Discover local professionals and support services in your area'
+    },
+    {
+      id: 'milestone-tracker',
+      title: 'Infant Milestone Tracker',
+      description: 'Track baby development milestones for peace of mind',
+      icon: Calendar,
+      color: 'from-pink-500 to-purple-500',
+      details: 'Monitor your baby\'s growth and development with expert guidance'
     },
   ];
 
@@ -210,19 +319,19 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
   };
 
   return (
-    <div className="space-y-16 animate-fade-in">
+    <div className="space-y-24 animate-fade-in">
       {/* Welcome Section */}
-      <section className="text-center py-12 animate-scale-in">
+      <section className="text-center py-12 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
         <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
           Welcome to JANMatri
         </h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in animation-delay-300">
+        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
           Your compassionate companion through the post-partum journey. 
           We're here to support you with expert care, community connection, and wellness guidance.
         </p>
         <Button 
           size="lg" 
-          className="bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce-gentle"
+          className="bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
           onClick={() => onSectionChange('community')}
         >
           Join Our Community
@@ -230,27 +339,34 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
         </Button>
       </section>
 
-      {/* Quick Actions */}
-      <section className="animate-slide-in-left animation-delay-500">
+      {/* Core App Features */}
+      <section className="scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Core Features
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Essential tools designed specifically for your postpartum journey
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {quickActions.map((action, index) => (
+          {coreFeatures.map((feature, index) => (
             <Card 
-              key={action.id}
-              className="group cursor-pointer border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card/80 backdrop-blur-sm animate-fade-in"
-              style={{ animationDelay: `${600 + index * 150}ms` }}
-              onClick={() => onSectionChange(action.id)}
+              key={feature.id}
+              className="group cursor-pointer border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-lg hover:-translate-y-2 bg-card/80 backdrop-blur-sm"
+              onClick={() => onSectionChange(feature.id)}
             >
               <CardHeader className="text-center pb-2">
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-4`}>
-                  <action.icon className="w-8 h-8 text-white" />
+                <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                  {action.title}
+                  {feature.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-center text-base">
-                  {action.description}
+                  {feature.description}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -258,8 +374,46 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
         </div>
       </section>
 
+      {/* Unique & Advanced Features */}
+      <section className="scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+            Advanced Support Tools
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Innovative features designed to provide comprehensive support for your unique journey
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {uniqueFeatures.map((feature, index) => (
+            <Card 
+              key={feature.id}
+              className="group cursor-pointer border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 bg-card/80 backdrop-blur-sm overflow-hidden"
+              onClick={() => onSectionChange(feature.id)}
+            >
+              <CardHeader className="pb-2">
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                  {feature.title}
+                </CardTitle>
+                <CardDescription className="text-sm">
+                  {feature.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {feature.details}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Statistics */}
-      <section className="animate-fade-in animation-delay-800">
+      <section className="scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
         <Card className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 border-primary/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-center text-2xl">Making a Difference Together</CardTitle>
@@ -268,7 +422,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center group">
-                  <stat.icon className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <stat.icon className="w-8 h-8 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
                   <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>
@@ -279,12 +433,12 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
       </section>
 
       {/* Featured Content */}
-      <section className="animate-slide-in-up animation-delay-1000">
+      <section className="scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
+          <Card className="border-primary/20 bg-card/80 backdrop-blur-sm group hover:shadow-lg transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Baby className="w-5 h-5 text-primary" />
+                <Baby className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
                 Today's Wellness Tip
               </CardTitle>
             </CardHeader>
@@ -302,10 +456,10 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
             </CardContent>
           </Card>
 
-          <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
+          <Card className="border-primary/20 bg-card/80 backdrop-blur-sm group hover:shadow-lg transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-secondary" />
+                <Users className="w-5 h-5 text-secondary group-hover:scale-110 transition-transform duration-300" />
                 Community Highlight
               </CardTitle>
             </CardHeader>
@@ -326,7 +480,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
       </section>
 
       {/* Baby Care Shop Section */}
-      <section className="animate-fade-in animation-delay-1200">
+      <section className="scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
         <div className="text-center py-8 mb-8">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Baby Care Shop
@@ -338,7 +492,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
 
         {/* Cart Summary */}
         {getTotalItems() > 0 && (
-          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20 mb-8 animate-slide-in-down">
+          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20 mb-8 scroll-animate opacity-0 translate-y-4 transition-all duration-500">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -397,8 +551,8 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
           {filteredProducts.map((product, index) => (
             <Card 
               key={product.id}
-              className="group border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg bg-card/80 backdrop-blur-sm animate-fade-in"
-              style={{ animationDelay: `${1400 + index * 100}ms` }}
+              className="group border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-lg hover:-translate-y-2 bg-card/80 backdrop-blur-sm scroll-animate opacity-0 translate-y-4"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
@@ -548,112 +702,94 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
       </section>
 
       {/* About Us Section */}
-      <section className="animate-fade-in animation-delay-1600">
-        <div className="text-center py-8 mb-8">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+      <section className="bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 rounded-2xl p-8 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             About JANMatri
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Supporting mothers through every step of their post-partum journey with compassion, expertise, and community.
-          </p>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-2xl">Our Mission</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4">
-                At JANMatri, we believe that every mother deserves comprehensive support during her post-partum journey. 
-                Our platform combines expert medical guidance, wellness practices, community support, and curated products 
-                to create a holistic support system for new mothers.
-              </p>
-              <p className="text-muted-foreground">
-                We understand that this journey is unique for everyone, and we're here to provide personalized care 
-                that adapts to your needs, helping you feel confident, supported, and empowered.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-primary/20 bg-card/80 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-2xl">Our Values</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Heart className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">Compassionate Care</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Every interaction is rooted in empathy and understanding
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Stethoscope className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">Expert-Led</h4>
-                    <p className="text-sm text-muted-foreground">
-                      All our guidance is backed by medical professionals and research
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-medium mb-1">Community-Centered</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Building connections that provide lasting support and friendship
-                    </p>
-                  </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              JANMatri was founded with a simple yet powerful mission: to ensure no mother faces the challenges of postpartum life alone. Our platform combines cutting-edge technology with human compassion to create a comprehensive support system for new mothers.
+            </p>
+            
+            <div className="space-y-4">
+              <div className="flex items-start gap-3 group">
+                <Heart className="w-5 h-5 text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Our Mission</h3>
+                  <p className="text-sm text-muted-foreground">To provide comprehensive, accessible, and compassionate support for every mother's postpartum journey.</p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Contact Information */}
-        <Card className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-center text-2xl">Get in Touch</CardTitle>
-            <CardDescription className="text-center">
-              We're here to support you. Reach out anytime.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="flex flex-col items-center">
-                <MapPin className="w-6 h-6 text-primary mb-2" />
-                <h4 className="font-medium mb-1">Location</h4>
-                <p className="text-sm text-muted-foreground">
-                  Mumbai, Maharashtra<br />India
-                </p>
+              
+              <div className="flex items-start gap-3 group">
+                <Users className="w-5 h-5 text-secondary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Our Community</h3>
+                  <p className="text-sm text-muted-foreground">A safe, supportive space where mothers can connect, share experiences, and find strength in solidarity.</p>
+                </div>
               </div>
-              <div className="flex flex-col items-center">
-                <Phone className="w-6 h-6 text-primary mb-2" />
-                <h4 className="font-medium mb-1">Phone</h4>
-                <p className="text-sm text-muted-foreground">
-                  +91 98765 43210<br />24/7 Support Available
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Mail className="w-6 h-6 text-primary mb-2" />
-                <h4 className="font-medium mb-1">Email</h4>
-                <p className="text-sm text-muted-foreground">
-                  support@janmatri.com<br />care@janmatri.com
-                </p>
+              
+              <div className="flex items-start gap-3 group">
+                <Stethoscope className="w-5 h-5 text-accent mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Expert Care</h3>
+                  <p className="text-sm text-muted-foreground">Access to qualified healthcare professionals specializing in postpartum mental and physical health.</p>
+                </div>
               </div>
             </div>
-            <div className="mt-8 text-center">
-              <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm">Our team typically responds within 2 hours</span>
+          </div>
+          
+          <div className="space-y-6">
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:shadow-lg transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-xl">Why JANMatri?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">24/7</Badge>
+                  <span className="text-sm">Round-the-clock support and resources</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Badge variant="outline" className="bg-secondary/10 text-secondary border-secondary/20">Safe</Badge>
+                  <span className="text-sm">Anonymous and confidential environment</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20">Expert</Badge>
+                  <span className="text-sm">Professional guidance and medical expertise</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Badge variant="outline" className="bg-muted text-muted-foreground">Free</Badge>
+                  <span className="text-sm">Core features available at no cost</span>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="text-center p-4 bg-primary/10 rounded-lg hover:scale-105 transition-transform duration-300">
+                <div className="text-2xl font-bold text-primary mb-1">2018</div>
+                <div className="text-sm text-muted-foreground">Founded</div>
+              </div>
+              <div className="text-center p-4 bg-secondary/10 rounded-lg hover:scale-105 transition-transform duration-300">
+                <div className="text-2xl font-bold text-secondary mb-1">50K+</div>
+                <div className="text-sm text-muted-foreground">Mothers Helped</div>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
+        
+        <div className="mt-8 text-center">
+          <Button 
+            size="lg"
+            className="bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-primary-foreground hover:scale-105 transition-all duration-300"
+            onClick={() => onSectionChange('community')}
+          >
+            Start Your Journey With Us
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+        </div>
       </section>
     </div>
   );
