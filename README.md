@@ -1,11 +1,13 @@
-JANMatri: A Digital Sanctuary for Mothers 🫂
-About the Project
+# JANMatri: A Digital Sanctuary for Mothers 🫂
+
+** About the Project **
 JANMatri is a compassionate digital sanctuary designed to empower and support mothers navigating the complex journey of postpartum depression and anxiety. The platform is built with empathy and advanced technology, combining essential tools with unique features to create a holistic and nurturing space for healing and growth.
 
-URL: https://janmatri-circle-of-support.lovable.app/
+# URL: https://janmatri-circle-of-support.lovable.app/
 
-✨ Key Features
-🧘‍♀️ Yoga & Wellness
+* ✨ Key Features
+* 🧘‍♀️ Yoga & Wellness
+  
 Curated Sessions: Provides yoga and meditation sessions specifically tailored for postpartum recovery.
 
 Customized Recommendations: The app suggests exercises based on a mother's real-time mood for a personalized path to well-being.
