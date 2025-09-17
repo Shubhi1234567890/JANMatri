@@ -1,73 +1,46 @@
-# Welcome to your Lovable project
+JANMatri: A Digital Sanctuary for Mothers 🫂
+About the Project
+JANMatri is a compassionate digital sanctuary designed to empower and support mothers navigating the complex journey of postpartum depression and anxiety. The platform is built with empathy and advanced technology, combining essential tools with unique features to create a holistic and nurturing space for healing and growth.
 
-## Project info
+URL: https://janmatri-circle-of-support.lovable.app/
 
-**URL**: https://lovable.dev/projects/9c955ebd-e596-4c67-802c-cf90abd85ef3
+✨ Key Features
+🧘‍♀️ Yoga & Wellness
+Curated Sessions: Provides yoga and meditation sessions specifically tailored for postpartum recovery.
 
-## How can I edit this code?
+Customized Recommendations: The app suggests exercises based on a mother's real-time mood for a personalized path to well-being.
 
-There are several ways of editing your application.
+Audio Diaries: A therapeutic feature that allows users to record their thoughts and feelings as voice notes.
 
-**Use Lovable**
+💬 Community & Connection
+Community Connect: A vibrant central forum for mothers to share experiences, offer mutual support, and realize they are not alone.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9c955ebd-e596-4c67-802c-cf90abd85ef3) and start prompting.
+Anonymous Chat Option: Provides a safe space for candid conversations without fear of judgment.
 
-Changes made via Lovable will be committed automatically to this repo.
+Moderated Support Groups: Smaller, topic-specific groups for more intimate and focused discussions.
 
-**Use your preferred IDE**
+👩‍⚕️ Professional Guidance
+Connect with Doctors: A comprehensive directory of mental health specialists and postpartum care experts.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Emergency SOS Button: A one-tap button for immediate access to mental health hotlines and trusted contacts.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+📈 Personalized Support
+Personalized Mood Tracker: Helps users log feelings and provides insights into emotional patterns.
 
-Follow these steps:
+Partner's Corner: A dedicated section with educational resources to empower partners to become a stronger support system.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Local Resources Map: Helps users find nearby in-person support groups, therapists, and services.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+🛒 Integrated Lifestyle
+Infant Milestone Tracker: Helps alleviate anxiety by providing reassurance and context for a baby's development.
 
-# Step 3: Install the necessary dependencies.
-npm i
+Shop: A convenient marketplace for baby products.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+💻 Tech Stack
+This project is built with a modern and robust technology stack to ensure a seamless user experience.
 
-**Edit a file directly in GitHub**
+Frontend: Vite, TypeScript, React
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Styling: shadcn/ui, Tailwind CSS
 
-**Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9c955ebd-e596-4c67-802c-cf90abd85ef3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
