@@ -42,7 +42,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
     <div className="space-y-8 animate-fade-in">
       {/* Welcome Section */}
       <div className="text-center py-12 animate-scale-in">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-glow-pulse">
+        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
           Welcome to JANMatri
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in animation-delay-300">
@@ -69,7 +69,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
             onClick={() => onSectionChange(action.id)}
           >
             <CardHeader className="text-center pb-2">
-              <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 animate-glow-pulse`}>
+              <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${action.color} flex items-center justify-center mx-auto mb-4`}>
                 <action.icon className="w-8 h-8 text-white" />
               </div>
               <CardTitle className="text-xl group-hover:text-primary transition-colors">
@@ -94,7 +94,7 @@ const HomePage = ({ onSectionChange }: HomePageProps) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
+                <stat.icon className="w-8 h-8 text-primary mx-auto mb-2" />
                 <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
