@@ -34,7 +34,6 @@ export function AppSidebar({ activeSection, onSectionChange }: AppSidebarProps) 
     { id: 'yoga', label: 'Yoga & Wellness', icon: Heart },
     { id: 'doctors', label: 'Connect with Doctors', icon: Stethoscope },
     { id: 'community', label: 'Community Connect', icon: MessageCircle },
-    { id: 'shop', label: 'Baby Care Shop', icon: ShoppingBag },
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
 

@@ -173,6 +173,28 @@ All colors MUST be HSL for proper theming.
   }
 }
 
+@keyframes slide-in-up {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-down {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .floating-cube {
   position: fixed;
   width: 12px;

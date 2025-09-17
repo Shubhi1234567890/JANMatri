@@ -6,7 +6,7 @@ import HomePage from '@/components/sections/HomePage';
 import YogaPage from '@/components/sections/YogaPage';
 import DoctorsPage from '@/components/sections/DoctorsPage';
 import CommunityPage from '@/components/sections/CommunityPage';
-import ShopPage from '@/components/sections/ShopPage';
+
 import SettingsPage from '@/components/sections/SettingsPage';
 
 const Layout = () => {
@@ -22,8 +22,6 @@ const Layout = () => {
         return <DoctorsPage />;
       case 'community':
         return <CommunityPage />;
-      case 'shop':
-        return <ShopPage />;
       case 'settings':
         return <SettingsPage />;
       default:
@@ -48,8 +46,8 @@ const Layout = () => {
           <AppSidebar activeSection={activeSection} onSectionChange={setActiveSection} />
           
           {/* Main Content */}
-          <main className="flex-1">
-            <div className="container mx-auto px-4 py-8 lg:px-8 max-w-7xl">
+          <main className="flex-1 overflow-y-auto">
+            <div className="container mx-auto px-4 py-8 lg:px-8 max-w-7xl min-h-screen">
               <div className="pt-16 lg:pt-0">
                 {renderContent()}
               </div>
